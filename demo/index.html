@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>A-Frame html-source component</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  <script src="../src/aframe-html-source.js"></script>
+</head>
+<body>
+<a-scene>
+  <a-sky color="#222"></a-sky>
+  <a-plane position="0 0 0" rotation="-90 0 0" scale="5 5 5" color="#555"></a-plane>
+  <a-image html-src="#test" position="0 1.6 -1"></a-image>
+</a-scene>
+
+<section id="test">
+  <h1>Introduction</h1>
+  <p>
+    A-Frame is a web framework for building virtual reality experiences. It was started by <a href="https://mozvr.com" target="_blank" rel="external">Mozilla VR</a> to make <a href="https://iswebvrready.com" target="_blank" rel="external">WebVR</a> content creation easier, faster, and more accessible.
+  </p>
+  <p>
+    A-Frame lets you build scenes with just <strong>HTML</strong> while having unlimited access to JavaScript, <a href="https://threejs.org" target="_blank" rel="external">three.js</a>, and all existing Web APIs.  A-Frame uses an <strong>entity-component-system</strong> pattern that promotes composition and extensibility. It is free and open source with a welcoming community and a thriving <strong>ecosystem of tools and components</strong>.
+  </p>
+</section>
+</body>
+</html>

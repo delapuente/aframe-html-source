@@ -1,0 +1,15 @@
+#test {
+  padding: 1rem;
+  width: 300px;
+  color: white;
+  font-family: sans-serif;
+  background: #ef2d5e url('dark-mosaic.png');
+}
+
+#test h1 {
+  font-weight: lighter;
+}
+
+#test a {
+  color: white;
+}
