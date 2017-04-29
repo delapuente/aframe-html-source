@@ -12,7 +12,7 @@ Simply grab the source or import from Internet:
 
 ```html
 <head>
-  <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
   <script src="https://rawgit.com/delapuente/aframe-html-source/master/src/aframe-html-source.js"></script>
 </head>
 ```
