@@ -1,0 +1,26 @@
+{
+  "name": "aframe-html-source",
+  "version": "0.0.1",
+  "description": "An A-Frame component to display HTML inside an `<a-image>` primitive.",
+  "main": "src/aframe-html-source.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delapuente/aframe-html-source.git"
+  },
+  "keywords": [
+    "vr",
+    "html",
+    "render",
+    "aframe",
+    "component"
+  ],
+  "author": "Salvador de la Puente González <salva@unoyunodiez.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/delapuente/aframe-html-source/issues"
+  },
+  "homepage": "https://github.com/delapuente/aframe-html-source#readme"
+}
