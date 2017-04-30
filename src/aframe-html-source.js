@@ -7,21 +7,11 @@ AFRAME.registerComponent('html-src', {
   },
   update: function() {
     var element = this.data;
-    if (document.readyState === 'interactive') {
-      this._contents(element);
-    }
-    else {
-      document.onreadystatechange = function () {
-        if (document.readyState === 'interactive') {
-          this._contents(element);
-        }
-      }.bind(this);
-    }
+    this._contents(element);
   },
   _contents: function(element, format) {
     var dimensions = this._dimensions(element);
     var svg = this._svg(element, dimensions);
-    document.body.appendChild(svg);
     var svgString = new XMLSerializer().serializeToString(svg);
     this._embedResources(svgString).then(function (svgString) {
       var SCALE = 1.0;
@@ -74,12 +64,12 @@ AFRAME.registerComponent('html-src', {
   },
   _setSource: function(svgString) {
     var base64 = btoa(unescape(encodeURIComponent(svgString)));
-    this._asset = this._asset || this._makeTextureContainer();
-    this._asset.setAttribute(
+    this.el._asset = this.el._asset || this._makeTextureContainer();
+    this.el._asset.setAttribute(
       'src',
       'data:image/svg+xml;base64,' + base64
     );
-    this.el.setAttribute('src', '#' + this._asset.id);
+    this.el.setAttribute('src', '#' + this.el._asset.id);
   },
   _makeTextureContainer: function () {
     var assets = this.el.sceneEl.querySelector('a-assets');

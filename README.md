@@ -8,7 +8,7 @@ This component is inspired by the articles [DOM2Texture: Abusing Arcane APIs](ht
 
 ## Install
 
-Simply grab the source or import from Internet:
+Simply [grab the source](https://rawgit.com/delapuente/aframe-html-source/master/src/aframe-html-source.js) or import from the Internet:
 
 ```html
 <head>
@@ -38,3 +38,8 @@ Simply grab the source or import from Internet:
 ```
 
 ## Limitations
+
+* No interactivity (so no links either)
+* No live updates (sorry, not animated GIFs)
+* Not rendering cross origin resources
+* No videos
