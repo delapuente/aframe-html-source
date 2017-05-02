@@ -1,36 +1,37 @@
-#test {
+.demo {
+  display: block;
+  box-sizing: border-box;
   padding: 1rem;
-  width: 300px;
-  color: white;
+  width: 400px;
+  height: 600px;
+  background-color: white;
   font-family: sans-serif;
+}
+
+#demo-article {
+  color: white;
   background: #ef2d5e url('dark-mosaic.png');
 }
 
-#test h1 {
+#demo-article h1 {
   font-weight: lighter;
 }
 
-#test a {
+#demo-article a {
   color: white;
 }
 
 /* From: https://codepen.io/zitrusfrisch/pen/wvcxy */
-#test-text {
-  font: 900 70px 'Source Sans Pro', Arial, sans-serif;
+#demo-3d-text {
+  font-size: 80px;
+  font-weight: 900;
   background: #becccc;
   text-transform: uppercase;
   color: #fff;
   text-align: center;
-  letter-spacing: -3px;
-  display: block;
-  height: 150px;
-  width: 300px;
-  padding: 16px;
 }
 
-#test-text p {
-  padding: 0;
-  margin: 0;
+#demo-3d-text p {
   text-shadow:     0 1px 0 hsl(174,5%,80%),
 	                 0 2px 0 hsl(174,5%,75%),
 	                 0 3px 0 hsl(174,5%,70%),
@@ -45,4 +46,17 @@
 	               0 5px 10px rgba(0,0,0,.2),
 	              0 10px 10px rgba(0,0,0,.2),
 	              0 20px 20px rgba(0,0,0,.3);
+}
+
+#demo-polaroid {
+  text-align: center;
+  background: transparent;
+}
+
+#demo-polaroid img {
+  background-color: white;
+  padding: 0.5em;
+  padding-bottom: 4em;
+  border: 1px black solid;
+  border-bottom-width: 3em;
 }

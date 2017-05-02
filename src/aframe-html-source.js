@@ -10,18 +10,23 @@ AFRAME.registerComponent('html-src', {
     this._contents(element);
   },
   _contents: function(element, format) {
+    if (!element) { return; }
     var dimensions = this._dimensions(element);
     var svg = this._svg(element, dimensions);
     var svgString = new XMLSerializer().serializeToString(svg);
     this._embedResources(svgString).then(function (svgString) {
-      var SCALE = 1.0;
+      var SCALE = 0.005;
       var ratio = dimensions.width / dimensions.height;
-      this.el.setAttribute('scale', [ratio * SCALE, SCALE, 0].join(' '));
+      this.el.setAttribute(
+        'scale',
+        [dimensions.width * SCALE, dimensions.height * SCALE, 0].join(' ')
+      );
       this._setSource(svgString);
     }.bind(this));
   },
   _embedResources: function (svgString) {
     var URL_FINDER = /(url\(&quot;)(https?:.+?)(&quot;)/g;
+    var SRC_FINDER = /(<img\s.*?src=")(.+?)(")/g;
     var urls = getUrls(svgString);
     var tasks = urls.map(objUrl);
     return Promise.all(tasks)
@@ -33,15 +38,26 @@ AFRAME.registerComponent('html-src', {
       return map;
     })
     .then(function (replaceMap) {
-      return svgString.replace(URL_FINDER, function (_, pre, url, pos) {
+      return svgString
+      .replace(URL_FINDER, function (_, pre, url, pos) {
+        return pre + replaceMap[url] + pos;
+      })
+      .replace(SRC_FINDER, function (_, pre, url, pos) {
+        url = new Request(url).url;
         return pre + replaceMap[url] + pos;
       });
     });
 
     function getUrls(cssText) {
+      var m;
       var uniqueUrls = {};
       while (m = URL_FINDER.exec(cssText)) {
-        uniqueUrls[m[2]] = true;
+        var url = m[2];
+        uniqueUrls[url] = true;
+      }
+      while (m = SRC_FINDER.exec(cssText)) {
+        var url = new Request(m[2]).url;
+        uniqueUrls[url] = true;
       }
       return Object.keys(uniqueUrls);
     }
@@ -69,7 +85,9 @@ AFRAME.registerComponent('html-src', {
       'src',
       'data:image/svg+xml;base64,' + base64
     );
-    this.el.setAttribute('src', '#' + this.el._asset.id);
+    this.el._asset.onload = function () {
+      this.el.setAttribute('src', '#' + this.el._asset.id);
+    }.bind(this);
   },
   _makeTextureContainer: function () {
     var assets = this.el.sceneEl.querySelector('a-assets');

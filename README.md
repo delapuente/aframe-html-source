@@ -2,6 +2,8 @@
 
 An A-Frame component to display HTML inside an `<a-image>` primitive.
 
+![HTML content rendered inside a WebVR scene](sample.png)
+
 ## Inspiration
 
 This component is inspired by the articles [DOM2Texture: Abusing Arcane APIs](http://dassur.ma/things/dom2texture/) and [Drawing DOM objects into a canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas).

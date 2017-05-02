@@ -8,13 +8,15 @@
 <body>
 <a-scene>
   <a-sky color="#222"></a-sky>
+  <a-camera position="0 0 3"></a-camera>
   <a-plane position="0 0 0" rotation="-90 0 0" scale="5 5 5" color="#555"></a-plane>
-  <a-image html-src="#test" position="-1 1.6 -3"></a-image>
-  <a-image html-src="#test-text" position="0.5 1.6 -3"></a-image>
+  <a-image html-src="#demo-article" position="-2.5 1.6 -3"></a-image>
+  <a-image html-src="#demo-3d-text" position="0 1.6 -3"></a-image>
+  <a-image html-src="#demo-polaroid" position="2.5 1.6 -3"></a-image>
 </a-scene>
 
-<section id="test">
-  <h1>Introduction</h1>
+<section class="demo" id="demo-article">
+  <h1>A-Frame introduction</h1>
   <p>
     A-Frame is a web framework for building virtual reality experiences. It was started by <a href="https://mozvr.com" target="_blank" rel="external">Mozilla VR</a> to make <a href="https://iswebvrready.com" target="_blank" rel="external">WebVR</a> content creation easier, faster, and more accessible.
   </p>
@@ -23,8 +25,12 @@
   </p>
 </section>
 
-<section id="test-text">
-  <p>CSS3</p>
+<section class="demo" id="demo-3d-text">
+  <p>CSS3 ONLY</p>
+</section>
+
+<section class="demo" id="demo-polaroid">
+  <img src="akihabara.jpg" />
 </section>
 
 </body>
