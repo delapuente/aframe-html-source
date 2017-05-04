@@ -1,4 +1,5 @@
 AFRAME.registerComponent('html-src', {
+  dependencies: ['material'],
   schema: {
     type: 'selector'
   },
@@ -86,7 +87,7 @@ AFRAME.registerComponent('html-src', {
       'data:image/svg+xml;base64,' + base64
     );
     this.el._asset.onload = function () {
-      this.el.setAttribute('src', '#' + this.el._asset.id);
+      this.el.setAttribute('material', 'src', '#' + this.el._asset.id);
     }.bind(this);
   },
   _makeTextureContainer: function () {
